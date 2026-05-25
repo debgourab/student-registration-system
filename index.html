@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A responsive student registration system for adding, editing, deleting, and saving student records.">
+  <meta name="keywords" content="student registration, student records, HTML, CSS, JavaScript, local storage">
+  <meta name="author" content="Student Registration Project">
+  <title>Student Registration System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-content">
+      <p class="eyebrow">Simple records manager</p>
+      <h1>Student Registration System</h1>
+      <p class="intro">
+        Register student details, keep them saved in the browser, and quickly edit or delete records whenever details change.
+      </p>
+    </div>
+  </header>
+
+  <main class="app-layout">
+    <section class="panel form-panel" aria-labelledby="form-title">
+      <div class="section-heading">
+        <h2 id="form-title">Register Student</h2>
+        <p>Fill every field before adding a record.</p>
+      </div>
+
+      <form id="studentForm" novalidate>
+        <div class="form-grid">
+          <label for="studentName">
+            Student Name
+            <input type="text" id="studentName" name="studentName" placeholder="Example: Deb Gourab Biswas" autocomplete="name">
+            <span class="error" id="studentNameError"></span>
+          </label>
+
+          <label for="studentId">
+            Student ID
+            <input type="text" id="studentId" name="studentId" placeholder="Example: 1024" inputmode="numeric">
+            <span class="error" id="studentIdError"></span>
+          </label>
+
+          <label for="studentClass">
+            Class
+            <input type="text" id="studentClass" name="studentClass" placeholder="Example: MCA">
+            <span class="error" id="studentClassError"></span>
+          </label>
+
+          <label for="studentEmail">
+            Email ID
+            <input type="email" id="studentEmail" name="studentEmail" placeholder="Example: debgourab@email.com" autocomplete="email">
+            <span class="error" id="studentEmailError"></span>
+          </label>
+
+          <label for="studentContact">
+            Contact Number
+            <input type="text" id="studentContact" name="studentContact" placeholder="Example: 8016168276" inputmode="numeric" autocomplete="tel">
+            <span class="error" id="studentContactError"></span>
+          </label>
+
+          <label for="studentAddress" class="full-width">
+            Address
+            <textarea id="studentAddress" name="studentAddress" placeholder="Example: Newtown,Kolkata"></textarea>
+            <span class="error" id="studentAddressError"></span>
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" id="submitButton">Add Student</button>
+          <button type="button" id="cancelButton" class="secondary hidden">Cancel Edit</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel records-panel" aria-labelledby="records-title">
+      <div class="section-heading records-heading">
+        <div>
+          <h2 id="records-title">Registered Students</h2>
+          <p id="recordCount">No records yet.</p>
+        </div>
+        <button type="button" id="clearAllButton" class="danger">Clear All</button>
+      </div>
+
+      <div id="recordsContainer" class="records-container" aria-live="polite">
+        <table>
+          <thead>
+            <tr>
+              <th>Student Name</th>
+              <th>Student ID</th>
+              <th>Class</th>
+              <th>Email ID</th>
+              <th>Contact No.</th>
+              <th>Address</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="recordsTableBody"></tbody>
+        </table>
+        <p id="emptyState" class="empty-state">Add a student to see records here.</p>
+        </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
